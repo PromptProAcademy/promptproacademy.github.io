@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptPro Academy</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #fff;
+      /* Vibrant AI-related background */
+      background: url('https://source.unsplash.com/1600x900/?AI,technology,chatgpt') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
+    a { text-decoration: none; color: inherit; }
+    .container {
+      width: 100%; max-width: 1200px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 8px;
+      padding: 40px 20px;
+      backdrop-filter: blur(10px);
+    }
+    .hero { text-align: center; margin-bottom: 60px; }
+    .hero h1 { font-size: 3rem; color: #0af; }
+    .hero p { font-size: 1.2rem; margin: 20px 0; }
+    .price { font-size: 2.5rem; margin: 20px 0; }
+    .price .original { text-decoration: line-through; color: #bbb; font-size: 1.2rem; margin-right: 10px; }
+    .price .offer { color: #0af; }
+    .btn { display: inline-block; padding: 15px 30px; border-radius: 4px; font-weight: bold; transition: background 0.3s; }
+    .btn-primary { background: #0af; color: #000; margin: 10px; }
+    .btn-primary:hover { background: #08c; }
+    .btn-secondary { background: #28a745; color: #fff; margin: 10px; }
+    .btn-secondary:hover { background: #218838; }
+    .countdown { font-size: 1.5rem; color: #0af; margin-top: 20px; }
+    section { margin-bottom: 60px; }
+    h2 { font-size: 2rem; color: #0af; margin-bottom: 20px; }
+    form { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 10px; border: none; border-radius: 4px; }
+    textarea { resize: vertical; }
+    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Unlock ChatGPT Power in 7 Days</h1>
+      <p>Access our Quick Start course or join a free webinar now.</p>
+      <div class="price">
+        <span class="original">$199</span>
+        <span class="offer"> $27</span> <small>(Limited Time Offer)</small>
+      </div>
+      <a href="https://gumroad.com/l/quickstart" class="btn btn-primary">Buy Now</a>
+      <a href="#webinar" class="btn btn-secondary">Join Free Webinar</a>
+      <div class="countdown" id="countdown">Offer ends in: Loading...</div>
+    </header>
+
+    <section id="webinar">
+      <h2>Free Live Webinar Signup</h2>
+      <form action="mailto:PromptProAcademy@gmail.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="w-name">Name</label>
+          <input type="text" id="w-name" name="Name" required>
+        </div>
+        <div class="form-group">
+          <label for="w-email">Email</label>
+          <input type="email" id="w-email" name="Email" required>
+        </div>
+        <button type="submit" class="btn btn-secondary">Sign Up</button>
+      </form>
+    </section>
+
+    <section id="consulting">
+      <h2>Corporate & Team Training Quote</h2>
+      <p>Fill out the form and we'll email you a custom proposal.</p>
+      <form action="mailto:PromptProAcademy@gmail.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="c-company">Company Name</label>
+          <input type="text" id="c-company" name="Company Name" required>
+        </div>
+        <div class="form-group">
+          <label for="c-employees">Number of Employees</label>
+          <input type="number" id="c-employees" name="Number of Employees" required>
+        </div>
+        <div class="form-group">
+          <label for="c-industry">Industry</label>
+          <input type="text" id="c-industry" name="Industry" required>
+        </div>
+        <div class="form-group">
+          <label for="c-phone">Phone</label>
+          <input type="tel" id="c-phone" name="Phone" required>
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" name="Email" required>
+        </div>
+        <div class="form-group">
+          <label for="c-address">Company Address</label>
+          <textarea id="c-address" name="Company Address" rows="2" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Request Quote</button>
+      </form>
+    </section>
+
+    <footer>
+      &copy; 2025 PromptPro Academy. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Countdown timer
+    const countdownEl = document.getElementById('countdown');
+    const deadline = new Date('2025-07-15T00:00:00').getTime();
+    const x = setInterval(() => {
+      const now = Date.now();
+      const distance = deadline - now;
+      if (distance < 0) { clearInterval(x); countdownEl.innerHTML = 'Offer has ended.'; return; }
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((distance % (1000*60)) / 1000);
+      countdownEl.innerHTML = `Offer ends in: ${days}d ${hours}h ${mins}m ${secs}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
