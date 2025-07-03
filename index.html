@@ -62,9 +62,19 @@
       <li><a href="enterprise.html">Enterprise</a></li>
     </ul>
   </nav>
+  <style>
+    /* Highlight nav links */
+    .nav-links a { padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 4px; transition: background .3s, color .3s; }
+    .nav-links a:hover { background: #0af; color: #000; }
+  </style>
 
   <!-- Hero Section -->
   <header>
+    <!-- Countdown for Quickstart Course -->
+    <div style="position:absolute; top:20%; right:10%; background:rgba(0,0,0,0.7); padding:10px 20px; border-radius:8px; font-size:1rem; text-align:center; z-index:5;">
+      <strong>Course Discount Ends In:</strong>
+      <div id="course-countdown" style="margin-top:5px; color:#0af;">Loading...</div>
+    </div>
     <div id="particles-js"></div>
     <div>
       <h1>Unlock ChatGPT Power in 7 Days</h1>
@@ -112,3 +122,4 @@
   </script>
 </body>
 </html>
+
