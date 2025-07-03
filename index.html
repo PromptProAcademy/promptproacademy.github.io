@@ -1,185 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PromptPro Academy - AI Mastery & Enterprise Services</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; background: #111; color: #fff; }
-    a { text-decoration: none; color: inherit; }
+import React from 'react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
-    /* Navbar */
-    nav { position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex;
-          justify-content: space-between; align-items: center; z-index: 10; }
-    .logo { font-size: 1.5rem; font-weight: 800; color: #0af; }
-    .nav-links { list-style: none; display: flex; gap: 20px; }
-    .nav-links a { padding: 10px 15px; background: #0af; color: #000; border-radius: 4px;
-                   font-weight: 600; transition: background .3s; }
-    .nav-links a:hover { background: #08c; }
+export default function PromptProHomepage() {
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <h1 className="text-2xl font-bold">PromptPro Academy</h1>
+        <nav className="space-x-6">
+          <a href="#fundamentals" className="text-gray-700 hover:text-gray-900">Fundamentals</a>
+          <a href="#warmups" className="text-gray-700 hover:text-gray-900">7-Day Warmups</a>
+          <a href="#use-cases" className="text-gray-700 hover:text-gray-900">Use Cases</a>
+          <a href="#automation" className="text-gray-700 hover:text-gray-900">Automation</a>
+          <a href="#templates" className="text-gray-700 hover:text-gray-900">Templates</a>
+        </nav>
+      </header>
 
-    /* Hero */
-    header { position: relative; width: 100%; height: 100vh;
-             display: flex; align-items: center; justify-content: center; text-align: center;
-             padding: 0 20px; }
-    #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-    header h1 { font-size: 3rem; text-transform: uppercase;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    header p { margin: 20px 0; font-size: 1.2rem; }
-    .btn { display: inline-block; padding: 15px 40px; border-radius: 30px; font-weight: 600;
-           margin: 10px; transition: background .3s, transform .3s; }
-    .btn-primary { background: #0af; color: #000; }
-    .btn-primary:hover { background: #08c; transform: scale(1.1); }
-    .btn-secondary { background: transparent; border: 2px solid #0af; color: #0af; }
-    .btn-secondary:hover { background: rgba(10,191,255,0.2); }
+      {/* Hero Section */}
+      <section className="flex-grow flex flex-col justify-center items-center text-center px-4 py-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Master Prompt Engineering</h2>
+        <p className="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl">
+          Unlock the full potential of AI with our comprehensive guides, hands-on exercises,
+          and plug-and-play templates designed to boost your workflow.
+        </p>
+        <Button>
+          Get Started <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </section>
 
-    /* Countdown & Price */
-    .price-container { position: absolute; top: 15%; right: 8%; text-align: center;
-                       background: rgba(0,0,0,0.8); padding: 20px; border-radius: 8px; z-index: 5;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
-    .price-container .original { text-decoration: line-through; color: #bbb; font-size: 1.5rem; }
-    .price-container .current { font-size: 3rem; color: #0af; font-weight: 800; margin: 5px 0; }
-    .price-container small { display: block; font-size: 1rem; color: #fff; }
-    #countdown { font-size: 2.5rem; font-weight: 600; color: #0af; }
-
-    /* Sections */
-    section { padding: 80px 20px; }
-    h2 { text-align: center; font-size: 2.5rem; color: #0af; margin-bottom: 40px; }
-    .section-content { max-width: 1000px; margin: 0 auto; }
-
-    /* Course Modules */
-    #course { background: linear-gradient(135deg, #0a1f2f, #111); }
-    .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .module { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;
-              transition: transform .3s, background .3s; }
-    .module:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
-    .module h3 { margin-bottom: 10px; font-size: 1.4rem; }
-    .module p { font-size: 1rem; line-height: 1.4; }
-    .buy-large { display: inline-block; font-size: 2rem; padding: 20px 60px; margin-top: 40px;
-                 background: #0af; color: #000; border-radius: 40px; transition: transform .3s; }
-    .buy-large:hover { transform: scale(1.1); }
-
-    /* Webinar Section */
-    #webinar { background: linear-gradient(135deg, #111, #0a1f2f); }
-    .webinar-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px;
-                   box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-    .webinar-form .ml-form-embedWrapper { background: rgba(0,0,0,0.4) !important; padding: 20px !important; border-radius: 8px; }
-    .webinar-form input { background: #222 !important; color: #fff !important; border: 1px solid #444 !important; }
-    .webinar-form input::placeholder { color: #aaa !important; }
-    .webinar-form .ml-form-embedPermissions p, .webinar-form label { color: #ccc !important; font-size: 0.9rem; }
-    .webinar-form .g-recaptcha { transform: scale(0.8); transform-origin: 0 0; margin-bottom: 20px !important; }
-    .webinar-form button.btn-primary { width: 100%; max-width: 400px; margin: 20px auto 0; display: block; }
-
-    /* Enterprise Services */
-    #enterprise { background: linear-gradient(135deg, #0a1f2f, #111); }
-    .corp-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .service { background: rgba(255,255,255,0.1); padding: 20px; border-left: 4px solid #0af;
-               border-radius: 8px; transition: transform .3s; }
-    .service:hover { transform: translateY(-5px); }
-    .service h3 { margin-bottom: 10px; font-size: 1.3rem; }
-    .service ul { list-style: disc inside; font-size: 1rem; }
-
-    /* Proposal Form */
-    .proposal-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px;
-                   box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-    .proposal-form h2 { margin-bottom: 20px; }
-    .proposal-form input { width: 100%; padding: 12px; border: none; border-radius: 4px; font-size: 1rem; margin-bottom: 15px; }
-    .proposal-form button { width: 100%; background: #0af; color: #000; padding: 15px; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: transform .3s; }
-    .proposal-form button:hover { transform: scale(1.05); }
-
-    /* Footer */
-    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .price-container { top: 15%; right: 5%; padding: 15px; }
-      .buy-large { font-size: 1.5rem; padding: 15px 40px; }
-    }
-  </style>
-</head>
-<body>
-  <!-- MailerLite Universal -->
-  <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
-    l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account','1635083');
-  </script>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#" class="logo">PromptPro Academy</a>
-    <ul class="nav-links">
-      <li><a href="#course">Course</a></li>
-      <li><a href="#webinar">Webinar</a></li>
-      <li><a href="#enterprise">Enterprise</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <header>
-    <div id="particles-js"></div>
-    <div>
-      <h1>Unlock ChatGPT Power in 7 Days</h1>
-      <p>Your all-in-one AI training hub: Courses, Webinars & Corporate Services</p>
-      <a href="#course" class="btn btn-primary">Buy Quickstart Course</a>
-      <a href="#webinar" class="btn btn-secondary">Join Free Webinar</a>
-    </div>
-    <div class="price-container">
-      <div class="original">$199</div>
-      <div class="current">$27</div>
-      <small>Limited Time Offer</small>
-      <div id="countdown">Loading...</div>
-    </div>
-  </header>
-
-  <!-- COURSE SECTION -->
-  <section id="course">
-    <h2>ChatGPT Quickstart Course Overview</h2>
-    <div class="section-content modules">
-      <div class="module"><h3>Module 1: ChatGPT Basics</h3><p>What ChatGPT is and why it matters for your business.</p></div>
-      <div class="module"><h3>Module 2: Prompt Engineering</h3><p>Learn to craft precise prompts for faster, better results.</p></div>
-      <div class="module"><h3>Module 3: Essential Prompts</h3><p>10 high-impact prompts to get immediate outcomes.</p></div>
-      <div class="module"><h3>Module 4: Use Cases</h3><p>Real-world examples for marketing, sales, and operations.</p></div>
-      <div class="module"><h3>Module 5: Automation & SOPs</h3><p>Build AI-driven workflows and Standard Operating Procedures.</p></div>
-    </div>
-    <div style="text-align:center; margin-top:40px;">
-      <a href="https://promptpro0.gumroad.com/l/quickstart?_gl=1*1xabpme*_ga*NDM1MDU5MzUwLjE3NTE0MTcyMjE.*_ga_6LJN6D94N6*czE3NTE1MTkwNDMkbzUkZzEkdDE3NTE1MTkwNzckajI2JGwwJGgw" class="buy-large" target="_blank" rel="noopener">Save $172 – Buy Now for $27</a>
-    </div>
-  </section>
-
-  <!-- WEBINAR SECTION -->
-  <section id="webinar">
-    <h2>Join Our Free Live Webinar</h2>
-    <div class="section-content webinar-form">
-      <div id="mlb2-27894354" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-27894354">
-        <div class="ml-form-align-center">
-          <div class="ml-form-embedWrapper embedForm">
-            <div class="ml-form-embedBody row-form">
-              <div class="ml-form-embedContent"><h4>PromptPro Academy Webinar Signup</h4><p>Secure your spot for our live session!</p></div>
-              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1635083/forms/158761244100134094/subscribe" method="post" target="_blank">
-                <div class="ml-form-formContent">
-                  <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input type="email" name="fields[email]" placeholder="Email address" required></div></div>
-                  <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-name"><input type="text" name="fields[name]" placeholder="Full name" required></div></div>
-                </div>
-                <div class="ml-form-embedPermissions"><p>You can unsubscribe anytime. <a href="#">Privacy Policy</a>.</p></div>
-                <div class="ml-form-checkboxRow ml-validate-required"><label><input type="checkbox" required> Opt in to receive news and updates.</label></div>
-                <div class="ml-form-recaptcha ml-validate-required"><script src="https://www.google.com/recaptcha/api.js"></script><div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div></div>
-                <button type="submit" class="btn btn-primary">Subscribe & Secure Spot</button>
-              </form>
-              <div class="ml-form-successBody row-success" style="display:none"><h4>Thank you!</h4><p>Check your email for webinar details.</p></div>
-            </div>
-          </div>
+      {/* Fundamentals Section */}
+      <section id="fundamentals" className="py-16 px-6 bg-white">
+        <h3 className="text-3xl font-bold mb-8 text-center">Fundamentals</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          {['ChatGPT Basics', 'Prompt Structure', 'System Messages'].map((title, idx) => (
+            <Card key={idx} className="hover:shadow-lg transition">
+              <CardHeader className="font-semibold">{title}</CardHeader>
+              <CardContent className="text-gray-600">
+                Learn the core principles and best practices for crafting effective prompts and managing AI interactions.
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- ENTERPRISE SECTION -->
-  <section id="enterprise">
-    <h2>Enterprise & Team Training</
+      {/* 7-Day Warmups Section */}
+      <section id="warmups" className="py-16 px-6 bg-gray-50">
+        <h3 className="text-3xl font-bold mb-8 text-center">7-Day Warmups</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {Array.from({ length: 7 }).map((_, day) => (
+            <div key={day} className="p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition">
+              <h4 className="font-semibold mb-2">Day {day + 1}</h4>
+              <p className="text-gray-600 text-sm">
+                Daily exercise to sharpen your prompt engineering skills and build consistency.
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Use Cases Section */}
+      <section id="use-cases" className="py-16 px-6 bg-white">
+        <h3 className="text-3xl font-bold mb-8 text-center">Use Cases</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { title: 'Content Creation', desc: 'Generate articles, blogs, and marketing copy with ease.' },
+            { title: 'Business', desc: 'Automate reports, emails, and data analysis workflows.' },
+            { title: 'Education', desc: 'Design lessons, quizzes, and interactive exercises.' },
+          ].map((item, idx) => (
+            <Card key={idx} className="hover:shadow-lg transition">
+              <CardHeader className="font-semibold">{item.title}</CardHeader>
+              <CardContent className="text-gray-600">
+                {item.desc}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Automation Section */}
+      <section id="automation" className="py-16 px-6 bg-gray-50">
+        <h3 className="text-3xl font-bold mb-8 text-center">Automation</h3>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-gray-700 mb-6">
+            Set up recurring reminders, scheduled searches, and custom workflows to streamline your daily tasks.
+          </p>
+          <Button>
+            Learn Automation <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </section>
+
+      {/* Templates Section */}
+      <section id="templates" className="py-16 px-6 bg-white">
+        <h3 className="text-3xl font-bold mb-8 text-center">30+ Plug-and-Play Templates</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {['Newsletter', 'Social Media', 'Email Response', 'Code Review', 'Brainstorming', 'Data Analysis'].map(
+            (name, idx) => (
+              <Card key={idx} className="hover:shadow-lg transition">
+                <CardHeader className="font-semibold">{name} Template</CardHeader>
+                <CardContent className="text-gray-600">
+                  Ready-made prompt template to jumpstart your projects and save time.
+                </CardContent>
+              </Card>
+            )
+          )}
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-12 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center">
+        <h4 className="text-2xl font-bold mb-4">Ready to transform your AI workflow?</h4>
+        <Button className="bg-white text-indigo-600 hover:bg-gray-100">
+          Join PromptPro Academy <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white py-6 px-6 shadow-inner">
+        <p className="text-center text-gray-600">© 2025 PromptPro Academy. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
