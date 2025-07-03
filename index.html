@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PromptPro Academy - AI Mastery & Enterprise Services</title>
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <style>
     /* Reset & Base */
@@ -67,70 +69,45 @@
     #webinar { background: linear-gradient(135deg, #111, #0a1f2f); }
     .webinar-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px;
                    box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    /* Webinar form custom styles */
+    .webinar-form .ml-form-embedWrapper { background: rgba(0,0,0,0.4) !important; padding: 20px !important; border-radius: 8px; }
+    .webinar-form input { background: #222 !important; color: #fff !important; border: 1px solid #444 !important; }
+    .webinar-form input::placeholder { color: #aaa !important; }
+    .webinar-form .ml-form-embedPermissions p, .webinar-form label { color: #ccc !important; font-size: 0.9rem; }
+    .webinar-form .g-recaptcha { transform: scale(0.8); transform-origin: 0 0; margin-bottom: 20px !important; }
+    .webinar-form button.btn-primary { width: 100%; max-width: 400px; margin: 20px auto 0; display: block; }
 
     /* Enterprise Services */
     #enterprise { background: linear-gradient(135deg, #0a1f2f, #111); }
     .corp-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .service { background: rgba(255,255,255,0.1); padding: 20px; border-left: 4px solid #0af;
-               border-radius: 8px; transition: transform .3s; }
+    .service { background: rgba(255,255,255,0.1); padding: 20px; border-left: 4px solid #0af; border-radius: 8px; transition: transform .3s; }
     .service:hover { transform: translateY(-5px); }
     .service h3 { margin-bottom: 10px; font-size: 1.3rem; }
     .service ul { list-style: disc inside; font-size: 1rem; }
 
     /* Proposal Form */
-    .proposal-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px;
-                   box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-    .proposal-form input, .proposal-form button { width: 100%; margin: 10px 0; }
-    .proposal-form button { background: #0af; color: #000; font-size: 1.2rem; padding: 20px;
-                            border-radius: 8px; transition: background .3s, transform .3s; }
-    .proposal-form button:hover { background: #08c; transform: scale(1.05); }
+    .proposal-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .proposal-form h2 { margin-bottom: 20px; }
+    .proposal-form input { padding: 12px; border: none; border-radius: 4px; font-size: 1rem; width: 100%; margin-bottom: 15px; }
+    .proposal-form button { background: #0af; color: #000; padding: 15px; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: transform .3s; }
+    .proposal-form button:hover { transform: scale(1.05); }
 
     /* Footer */
     footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
 
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .price-container { top: 15%; right: 5%; padding: 15px; }
-      .price-container .current { font-size: 2.5rem; }
-      .buy-large { font-size: 1.5rem; padding: 15px 40px; }
-    }
-    /* Webinar form overrides */
-  .webinar-form .ml-form-embedWrapper {
-    background: rgba(0,0,0,0.4) !important;
-    padding: 20px !important;
-    border-radius: 8px;
-  }
-  .webinar-form .ml-form-formContent input {
-    background: #222 !important;
-    color: #fff !important;
-    border: 1px solid #444 !important;
-  }
-  .webinar-form .ml-form-formContent input::placeholder {
-    color: #aaa !important;
-  }
-  .webinar-form .ml-form-embedPermissions p {
-    color: #ccc !important;
-    font-size: 0.9rem;
-  }
-  .webinar-form .ml-form-checkboxRow label {
-    color: #fff !important;
-    font-size: 0.9rem;
-  }
-  .webinar-form .ml-form-recaptcha {
-    transform: scale(0.8);
-    transform-origin: 0 0;
-    margin-bottom: 20px !important;
-  }
-  .webinar-form button.btn-primary {
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto 0 auto;
-    display: block;
-  }
-</style>
+    @media (max-width: 768px) { header h1 { font-size: 2.2rem; } .price-container { top:15%; right:5%; padding:15px; } .buy-large { font-size:1.5rem; padding:15px 40px; } }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- MailerLite Universal Script -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
+    l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account','1635083');
+  </script>
+
+  <!-- Navigation -->
   <nav>
     <a href="#" class="logo">PromptPro Academy</a>
     <ul class="nav-links">
@@ -140,13 +117,13 @@
     </ul>
   </nav>
 
-  <!-- Hero with Particles -->
+  <!-- Hero Section -->
   <header>
     <div id="particles-js"></div>
     <div>
       <h1>Unlock ChatGPT Power in 7 Days</h1>
       <p>Your all-in-one AI training hub: Courses, Webinars & Corporate Services</p>
-      <a href="https://promptpro0.gumroad.com/l/quickstart?_gl=1*1xabpme*_ga*NDM1MDU5MzUwLjE3NTE0MTcyMjE.*_ga_6LJN6D94N6*czE3NTE1MTkwNDMkbzUkZzEkdDE3NTE1MTkwNzckajI2JGwwJGgw" class="btn btn-primary" target="_blank" rel="noopener">Buy Quickstart Course</a>
+      <a href="#course" class="btn btn-primary">Buy Quickstart Course</a>
       <a href="#webinar" class="btn btn-secondary">Join Free Webinar</a>
     </div>
     <!-- Price & Countdown -->
@@ -158,7 +135,7 @@
     </div>
   </header>
 
-  <!-- Course Modules -->
+  <!-- Course Section -->
   <section id="course">
     <h2>ChatGPT Quickstart Course Overview</h2>
     <div class="section-content modules">
@@ -173,19 +150,10 @@
     </div>
   </section>
 
-  <!-- Webinar Signup -->
+  <!-- Webinar Section -->
   <section id="webinar">
     <h2>Join Our Free Live Webinar</h2>
     <div class="section-content webinar-form">
-      <!-- MailerLite Universal -->
-      <script>
-        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-        ml('account', '1635083');
-      </script>
-      <!-- MailerLite Embedded Form -->
       <div id="mlb2-27894354" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-27894354">
         <div class="ml-form-align-center">
           <div class="ml-form-embedWrapper embedForm">
@@ -194,7 +162,9 @@
                 <h4>PromptPro Academy Webinar Signup</h4>
                 <p>Secure your spot for our live session!</p>
               </div>
-              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1635083/forms/158761244100134094/subscribe" method="post" target="_blank">
+              <form class="ml-block-form"
+                    action="https://assets.mailerlite.com/jsonp/1635083/forms/158761244100134094/subscribe"
+                    method="post" target="_blank">
                 <div class="ml-form-formContent">
                   <div class="ml-form-fieldRow">
                     <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
@@ -221,7 +191,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Subscribe & Secure Spot</button>
               </form>
-              <div class="ml-form-successBody row-success" style="display: none;">
+              <div class="ml-form-successBody row-success" style="display:none">
                 <h4>Thank you!</h4>
                 <p>Check your email for webinar details.</p>
               </div>
@@ -232,7 +202,7 @@
     </div>
   </section>
 
-  <!-- Enterprise Services -->
+  <!-- Enterprise Section -->
   <section id="enterprise">
     <h2>Enterprise & Team Training</h2>
     <div class="section-content corp-services">
@@ -241,16 +211,64 @@
       <div class="service"><h3>Brand Development</h3><ul><li>AI-assisted naming & slogans</li><li>Voice/tone guidelines</li><li>Content strategy frameworks</li></ul></div>
       <div class="service"><h3>Custom Prompt Libraries</h3><ul><li>Industry-specific libraries</li><li>Team-tailored prompt sets</li><li>Ongoing prompt support</li></ul></div>
     </div>
-    <div class="section-content proposal-form" style="max-width:600px; margin:40px auto;">
-      <h2>Request a Proposal</h2>
-      <form action="mailto:PromptProAcademy@gmail.com" method="post" enctype="text/plain">
-        <input name="Company Name" placeholder="Company Name" required>
-        <input name="Employees" type="number" placeholder="# of Employees" required>
-        <input name="Industry" placeholder="Industry" required>
-        <input name="Email" type="email" placeholder="Contact Email" required>
-        <input name="Phone" placeholder="Phone Number" required>
-        <button type="submit">Request Quote</button>
-      </form>
+
+    <!-- Enterprise Proposal Form -->
+    <div class="section-content proposal-form">
+      <h2>Request a Custom AI Training Proposal</h2>
+      <div id="mlb2-ENTERPRISEID" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-ENTERPRISEID">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody row-form">
+              <div class="ml-form-embedContent">
+                <h4>PromptPro Academy Proposal Request</n                ></h4>
+                <p>Tell us about your company and we’ll send you a personalized proposal.</p>
+              </div>
+              <form class="ml-block-form"
+                    action="https://assets.mailerlite.com/jsonp/1635083/forms/ENTERPRISEID/subscribe"
+                    method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-text ml-validate-required">
+                      <input type="text" name="fields[company_name]" placeholder="Your Company Name" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-number ml-validate-required">
+                      <input type="number" name="fields[employees]" placeholder="Number of Employees" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-text ml-validate-required">
+                      <input type="text" name="fields[industry]" placeholder="Industry (e.g. SaaS, Retail)" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input type="email" name="fields[email]" placeholder="Contact Email" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-text ml-validate-required">
+                      <input type="text" name="fields[phone]" placeholder="Phone Number" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-form-embedPermissions">
+                  <p>You can unsubscribe anytime. <a href="#">Privacy Policy</a>.</p>
+                </div>
+                <div class="ml-form-checkboxRow ml-validate-required">
+                  <label><input type="checkbox" required> Yes, send me AI tips & exclusive offers.</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Request My Proposal</button>
+              </form>
+              <div class="ml-form-successBody row-success" style="display:none">
+                <h4>Thank you!</h4>
+                <p>We’ve received your request and will be in touch shortly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -259,10 +277,19 @@
 
   <!-- Initialization Scripts -->
   <script>
-    particlesJS('particles-js',{particles:{number:{value:60},color:{value:'#0af'},shape:{type:'circle'},line_linked:{enable:true,color:'#0af'},move:{speed:2},size:{value:3}},interactivity:{events:{onhover:{enable:true,mode:'grab'}}}});
+    particlesJS('particles-js',{
+      particles:{number:{value:60},color:{value:'#0af'},shape:{type:'circle'},line_linked:{enable:true,color:'#0af'},move:{speed:2},size:{value:3}},
+      interactivity:{ events:{ onhover:{ enable:true, mode:'grab' } } }
+    });
     const countdownEl=document.getElementById('countdown');
-    const end=new Date();end.setDate(end.getDate()+1); // 24h timer or set specific date
+    const end=new Date();end.setDate(end.getDate()+1);
     setInterval(()=>{const now=Date.now(),d=end-now;if(d<0){countdownEl.innerText='Expired';return;}const days=Math.floor(d/(864e5)),hrs=Math.floor((d%864e5)/36e5),mins=Math.floor((d%36e5)/6e4),secs=Math.floor((d%6e4)/1e3);countdownEl.innerText=`${days}d ${hrs}h ${mins}m ${secs}s`;},1000);
+  </script>
+  <!-- MailerLite Webforms Loader -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v=176e10baa5e7ed80d35ae235be3d5024"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/1635083/forms/158761244100134094/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1635083/forms/ENTERPRISEID/takel");
   </script>
 </body>
 </html>
