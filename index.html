@@ -3,63 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PromptPro Academy</title>
-  <!-- Global Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <title>PromptPro Academy - Viral AI Mastery</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; color: #fff; background: #111; }
+
+    /* Navbar */
+    nav { position: fixed; top: 0; width: 100%; padding: 20px; display: flex;
+          justify-content: space-between; align-items: center; z-index: 10; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: #0af; }
+    .nav-links { list-style: none; display: flex; gap: 20px; }
+    .nav-links a { color: #fff; font-weight: 600; transition: color .3s; }
+    .nav-links a:hover { color: #0af; }
+
+    /* Hero */
+    header { position: relative; width: 100%; height: 100vh;
+             display: flex; align-items: center; justify-content: center; text-align: center;
+             padding: 0 20px; }
+    #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+    header h1 { font-size: 3rem; line-height: 1.2; text-transform: uppercase;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+    header p { margin: 20px 0; font-size: 1.2rem; }
+    .btn { padding: 15px 30px; border-radius: 30px; font-weight: 600;
+           transition: background .3s, transform .3s; margin: 10px; }
+    .btn-primary { background: #0af; color: #000; }
+    .btn-primary:hover { background: #08c; transform: scale(1.05); }
+    .btn-secondary { background: transparent; border: 2px solid #0af; color: #0af; }
+    .btn-secondary:hover { background: rgba(10,191,255,0.2); }
+
+    /* Sections */
+    section { padding: 80px 20px; }
+    h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #0af; }
+    .services .grid { display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .card { background: rgba(255,255,255,0.1); padding: 30px;
+            border-radius: 8px; transition: transform .3s, background .3s; }
+    .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
+    .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+
+    /* Footer */
+    footer { padding: 20px; text-align: center; font-size: 0.9rem; color: #777; }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo">PromptPro Academy</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="course.html">Course</a></li>
-        <li><a href="webinar.html">Webinar</a></li>
-        <li><a href="enterprise.html">Enterprise</a></li>
-      </ul>
-    </div>
+  <nav>
+    <a href="index.html" class="logo">PromptPro Academy</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="course.html">Course</a></li>
+      <li><a href="webinar.html">Webinar</a></li>
+      <li><a href="enterprise.html">Enterprise</a></li>
+    </ul>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
+  <header>
+    <div id="particles-js"></div>
+    <div>
       <h1>Unlock ChatGPT Power in 7 Days</h1>
-      <p>Your all‑in‑one AI training hub: Courses, Webinars, & Corporate Services</p>
+      <p>Your all-in-one AI training hub: Courses, Webinars & Corporate Services</p>
       <a href="course.html" class="btn btn-primary">Buy Quickstart Course</a>
       <a href="webinar.html" class="btn btn-secondary">Join Free Webinar</a>
     </div>
-  </section>
+  </header>
 
-  <!-- Overview Services -->
+  <!-- Services Overview -->
   <section class="services">
-    <div class="container">
-      <h2>Our Solutions</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Self‑Paced Course</h3>
-          <p>Master ChatGPT with our $27 Quickstart—was $199</p>
-        </div>
-        <div class="card">
-          <h3>Live Webinars</h3>
-          <p>Weekly sessions to ask questions & learn live</p>
-        </div>
-        <div class="card">
-          <h3>Enterprise Training</h3>
-          <p>Custom workshops for sales, marketing, and teams</p>
-        </div>
+    <h2>Our Solutions</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Self-Paced Course</h3>
+        <p>Master ChatGPT with our $27 Quickstart—was $199</p>
+      </div>
+      <div class="card">
+        <h3>Live Webinars</h3>
+        <p>Weekly sessions to ask questions & learn live</p>
+      </div>
+      <div class="card">
+        <h3>Enterprise Training</h3>
+        <p>Custom workshops for sales, marketing, and teams</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 PromptPro Academy. All rights reserved.</p>
-    </div>
-  </footer>
+  <footer>&copy; 2025 PromptPro Academy. All rights reserved.</footer>
 
-  <!-- Countdown Script Example -->
-  <script src="countdown.js"></script>
+  <!-- Particles.js Init -->
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 50 },
+        color: { value: '#0af' },
+        shape: { type: 'circle' },
+        line_linked: { enable: true, color: '#0af' },
+        move: { speed: 2 },
+        size: { value: 3 }
+      },
+      interactivity: { events: { onhover: { enable: true, mode: 'grab' } } }
+    });
+  </script>
 </body>
 </html>
