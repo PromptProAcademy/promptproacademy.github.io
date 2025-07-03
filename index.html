@@ -1,125 +1,139 @@
+<!--
+============================
+INDEX.HTML UPDATES
+============================
+Add this inside your <header> after the countdown for a bold price display:
+-->
+<div class="price-display">
+  <span class="original-price">$199</span>
+  <span class="discounted-price">$27</span>
+  <small class="limited">(Limited Time Offer)</small>
+</div>
+
+<!-- Add to your CSS (styles.css): -->
+<style>
+.price-display { text-align: center; margin: 30px 0; }
+.original-price { text-decoration: line-through; color: #bbb; font-size: 2rem; margin-right: 10px; }
+.discounted-price { font-size: 3rem; color: #0af; font-weight: 800; }
+.limited { display: block; font-size: 1rem; color: #fff; margin-top: 5px; }
+#course-countdown { font-size: 2.5rem; font-weight: 600; }
+</style>
+
+<!--
+============================
+COURSE.HTML TEMPLATE
+============================
+Save as course.html in your repo.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PromptPro Academy - Viral AI Mastery</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; overflow-x: hidden; }
-    body { font-family: 'Inter', sans-serif; color: #fff; background: #111; }
-
-    /* Navbar */
-    nav { position: fixed; top: 0; width: 100%; padding: 20px; display: flex;
-          justify-content: space-between; align-items: center; z-index: 10; }
-    .logo { font-size: 1.5rem; font-weight: 800; color: #0af; }
-    .nav-links { list-style: none; display: flex; gap: 20px; }
-    .nav-links a { color: #fff; font-weight: 600; transition: color .3s; }
-    .nav-links a:hover { color: #0af; }
-
-    /* Hero */
-    header { position: relative; width: 100%; height: 100vh;
-             display: flex; align-items: center; justify-content: center; text-align: center;
-             padding: 0 20px; }
-    #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-    header h1 { font-size: 3rem; line-height: 1.2; text-transform: uppercase;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    header p { margin: 20px 0; font-size: 1.2rem; }
-    .btn { padding: 15px 30px; border-radius: 30px; font-weight: 600;
-           transition: background .3s, transform .3s; margin: 10px; }
-    .btn-primary { background: #0af; color: #000; }
-    .btn-primary:hover { background: #08c; transform: scale(1.05); }
-    .btn-secondary { background: transparent; border: 2px solid #0af; color: #0af; }
-    .btn-secondary:hover { background: rgba(10,191,255,0.2); }
-
-    /* Sections */
-    section { padding: 80px 20px; }
-    h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #0af; }
-    .services .grid { display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-    .card { background: rgba(255,255,255,0.1); padding: 30px;
-            border-radius: 8px; transition: transform .3s, background .3s; }
-    .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
-    .card h3 { margin-bottom: 15px; font-size: 1.4rem; }
-
-    /* Footer */
-    footer { padding: 20px; text-align: center; font-size: 0.9rem; color: #777; }
-  </style>
+  <title>Quickstart Course | PromptPro Academy</title>
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html" class="logo">PromptPro Academy</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="course.html">Course</a></li>
-      <li><a href="webinar.html">Webinar</a></li>
-      <li><a href="enterprise.html">Enterprise</a></li>
-    </ul>
-  </nav>
-  <style>
-    /* Highlight nav links */
-    .nav-links a { padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 4px; transition: background .3s, color .3s; }
-    .nav-links a:hover { background: #0af; color: #000; }
-  </style>
-
-  <!-- Hero Section -->
-  <header>
-    <!-- Countdown for Quickstart Course -->
-    <div style="position:absolute; top:20%; right:10%; background:rgba(0,0,0,0.7); padding:10px 20px; border-radius:8px; font-size:1rem; text-align:center; z-index:5;">
-      <strong>Course Discount Ends In:</strong>
-      <div id="course-countdown" style="margin-top:5px; color:#0af;">Loading...</div>
-    </div>
-    <div id="particles-js"></div>
-    <div>
-      <h1>Unlock ChatGPT Power in 7 Days</h1>
-      <p>Your all-in-one AI training hub: Courses, Webinars & Corporate Services</p>
-      <a href="course.html" class="btn btn-primary">Buy Quickstart Course</a>
-      <a href="webinar.html" class="btn btn-secondary">Join Free Webinar</a>
-    </div>
-  </header>
-
-  <!-- Services Overview -->
-  <section class="services">
-    <h2>Our Solutions</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Self-Paced Course</h3>
-        <p>Master ChatGPT with our $27 Quickstart—was $199</p>
-      </div>
-      <div class="card">
-        <h3>Live Webinars</h3>
-        <p>Weekly sessions to ask questions & learn live</p>
-      </div>
-      <div class="card">
-        <h3>Enterprise Training</h3>
-        <p>Custom workshops for sales, marketing, and teams</p>
-      </div>
-    </div>
+  <!-- Nav (same as index) -->
+  <nav><!-- … --></nav>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>ChatGPT Quickstart Course</h1>
+    <p>Master prompts, create content, and automate tasks in 7 days.</p>
+    <a href="https://gumroad.com/l/quickstart" class="btn btn-primary">Buy Now for $27</a>
   </section>
-
-  <!-- Footer -->
-  <footer>&copy; 2025 PromptPro Academy. All rights reserved.</footer>
-
-  <!-- Particles.js Init -->
-  <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 50 },
-        color: { value: '#0af' },
-        shape: { type: 'circle' },
-        line_linked: { enable: true, color: '#0af' },
-        move: { speed: 2 },
-        size: { value: 3 }
-      },
-      interactivity: { events: { onhover: { enable: true, mode: 'grab' } } }
-    });
-  </script>
+  <!-- Course Outline -->
+  <section class="content">
+    <h2>Course Outline</h2>
+    <ul>
+      <li>Module 1: ChatGPT Basics</li>
+      <li>Module 2: Prompt Engineering 101</li>
+      <li>Module 3: 10 Essential Prompts</li>
+      <li>Module 4: Real-World Use Cases</li>
+      <li>Module 5: Automations & SOPs</li>
+    </ul>
+  </section>
+  <!-- Contact Form -->
+  <section class="contact">
+    <h2>Questions? Get in Touch</h2>
+    <form action="mailto:PromptProAcademy@gmail.com" method="post" enctype="text/plain">
+      <input name="Name" placeholder="Your Name" required>
+      <input name="Email" type="email" placeholder="Your Email" required>
+      <textarea name="Message" rows="4" placeholder="How can we help?" required></textarea>
+      <button type="submit" class="btn btn-secondary">Send Message</button>
+    </form>
+  </section>
+  <footer><!-- … --></footer>
 </body>
 </html>
 
+<!--
+============================
+WEBINAR.HTML TEMPLATE
+============================
+Save as webinar.html in your repo.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Webinar | PromptPro Academy</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav><!-- … --></nav>
+  <section class="hero">
+    <h1>Free ChatGPT Webinar</h1>
+    <p>Join our live session and see ChatGPT in action.</p>
+  </section>
+  <section class="content">
+    <h2>Webinar Signup</h2>
+    <!-- Embed your MailerLite form here -->
+  </section>
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form action="mailto:PromptProAcademy@gmail.com" method="post" enctype="text/plain">
+      <input name="Name" placeholder="Your Name" required>
+      <input name="Email" type="email" placeholder="Your Email" required>
+      <button type="submit" class="btn btn-secondary">Send Message</button>
+    </form>
+  </section>
+  <footer><!-- … --></footer>
+</body>
+</html>
+
+<!--
+============================
+ENTERPRISE.HTML TEMPLATE
+============================
+Save as enterprise.html in your repo.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Services | PromptPro Academy</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav><!-- … --></nav>
+  <section class="hero">
+    <h1>Corporate & Team Training</h1>
+    <p>Custom AI workshops for marketing, sales, and executives.</p>
+  </section>
+  <section class="content">
+    <h2>Request a Proposal</h2>
+    <form action="mailto:PromptProAcademy@gmail.com" method="post" enctype="text/plain">
+      <input name="Company Name" placeholder="Company Name" required>
+      <input name="Employees" type="number" placeholder="# of Employees" required>
+      <input name="Industry" placeholder="Industry" required>
+      <input name="Email" type="email" placeholder="Contact Email" required>
+      <input name="Phone" placeholder="Phone Number" required>
+      <button type="submit" class="btn btn-primary">Request Quote</button>
+    </form>
+  </section>
+  <footer><!-- … --></footer>
+</body>
+</html>
