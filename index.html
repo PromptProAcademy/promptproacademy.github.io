@@ -1,108 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PromptPro Academy - AI Mastery & Enterprise Services</title>
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
   <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; }
-    body { color: #fff; background: #111; }
-    a { text-decoration: none; }
-
+    /* Basic reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; font-family:'Inter',sans-serif; background:#111; color:#fff; overflow-x:hidden; }
+    a { text-decoration:none; color:inherit; }
     /* Navbar */
-    nav { position: fixed; top: 0; width: 100%; padding: 20px 40px; display: flex;
-          justify-content: space-between; align-items: center; z-index: 10; }
-    .logo { font-size: 1.5rem; font-weight: 800; color: #0af; }
-    .nav-links { list-style: none; display: flex; gap: 20px; }
-    .nav-links a { padding: 10px 15px; background: #0af; color: #000; border-radius: 4px;
-                   font-weight: 600; transition: background .3s; }
-    .nav-links a:hover { background: #08c; }
-
+    nav { position:fixed; top:0; width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; z-index:10; }
+    .logo { font-size:1.5rem; font-weight:800; color:#0af; }
+    .nav-links { display:flex; gap:20px; }
+    .nav-links a { padding:10px 15px; background:#0af; color:#000; border-radius:4px; font-weight:600; transition:background .3s; }
+    .nav-links a:hover { background:#08c; }
     /* Hero */
-    header { position: relative; width: 100%; height: 100vh;
-             display: flex; align-items: center; justify-content: center; text-align: center;
-             padding: 0 20px; }
-    #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-    header h1 { font-size: 3rem; line-height: 1.2; text-transform: uppercase;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
-    header p { margin: 20px 0; font-size: 1.2rem; }
-    .btn { display: inline-block; padding: 15px 40px; border-radius: 30px; font-weight: 600;
-           margin: 10px; transition: background .3s, transform .3s; }
-    .btn-primary { background: #0af; color: #000; }
-    .btn-primary:hover { background: #08c; transform: scale(1.1); }
-    .btn-secondary { background: transparent; border: 2px solid #0af; color: #0af; }
-    .btn-secondary:hover { background: rgba(10,191,255,0.2); }
-
+    header { position:relative; width:100%; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 20px; }
+    #particles-js { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; }
+    header h1 { font-size:3rem; text-transform:uppercase; text-shadow:2px2px4px rgba(0,0,0,0.7); }
+    header p { margin:20px0; font-size:1.2rem; }
+    .btn { display:inline-block; padding:15px40px; border-radius:30px; font-weight:600; margin:10px; transition:background .3s,transform .3s; }
+    .btn-primary { background:#0af; color:#000; }
+    .btn-primary:hover { background:#08c; transform:scale(1.1); }
+    .btn-secondary { background:transparent; border:2px solid #0af; color:#0af; }
+    .btn-secondary:hover { background:rgba(10,191,255,0.2); }
     /* Countdown & Price */
-    .price-container { position: absolute; top: 15%; right: 8%; text-align: center;
-                       background: rgba(0,0,0,0.8); padding: 20px; border-radius: 8px; z-index: 5;
-                       box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
-    .price-container .original { text-decoration: line-through; color: #bbb; font-size: 1.5rem; }
-    .price-container .current { font-size: 3rem; color: #0af; font-weight: 800; margin: 5px 0; }
-    .price-container small { display: block; font-size: 1rem; color: #fff; }
-    #countdown { font-size: 2.5rem; font-weight: 600; color: #0af; }
-
+    .price-container { position:absolute; top:15%; right:8%; text-align:center; background:rgba(0,0,0,0.8); padding:20px; border-radius:8px; box-shadow:0 4px12px rgba(0,0,0,0.5); z-index:5; }
+    .price-container .original { text-decoration:line-through; color:#bbb; font-size:1.5rem; }
+    .price-container .current { font-size:3rem; color:#0af; font-weight:800; margin:5px0; }
+    .price-container small { display:block; font-size:1rem; color:#fff; }
+    #countdown { font-size:2.5rem; font-weight:600; color:#0af; }
     /* Sections */
-    section { padding: 80px 20px; }
-    h2 { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #0af; }
-    .section-content { max-width: 1000px; margin: 0 auto; }
-
-    /* Course Modules */
-    #course { background: linear-gradient(135deg, #0a1f2f, #111); }
-    .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .module { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;
-              transition: transform .3s, background .3s; }
-    .module:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
-    .module h3 { margin-bottom: 10px; font-size: 1.4rem; }
-    .module p { font-size: 1rem; line-height: 1.4; }
-    .buy-large { display: inline-block; font-size: 2rem; padding: 20px 60px; margin-top: 40px;
-                 background: #0af; color: #000; border-radius: 40px; transition: transform .3s; }
-    .buy-large:hover { transform: scale(1.1); }
-
-    /* Webinar Section */
-    #webinar { background: linear-gradient(135deg, #111, #0a1f2f); }
-    .webinar-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px;
-                   box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-    .webinar-form .ml-form-embedWrapper { background: rgba(0,0,0,0.4) !important; padding: 20px !important; border-radius: 8px; }
-    .webinar-form input { background: #222 !important; color: #fff !important; border: 1px solid #444 !important; }
-    .webinar-form input::placeholder { color: #aaa !important; }
-    .webinar-form .ml-form-embedPermissions p, .webinar-form label { color: #ccc !important; font-size: 0.9rem; }
-    .webinar-form .g-recaptcha { transform: scale(0.8); transform-origin: 0 0; margin-bottom: 20px !important; }
-    .webinar-form button.btn-primary { width: 100%; max-width: 400px; margin: 20px auto 0; display: block; }
-
-    /* Enterprise Services */
-    #enterprise { background: linear-gradient(135deg, #0a1f2f, #111); }
-    .corp-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .service { background: rgba(255,255,255,0.1); padding: 20px; border-left: 4px solid #0af; border-radius: 8px; transition: transform .3s; }
-    .service:hover { transform: translateY(-5px); }
-    .service h3 { margin-bottom: 10px; font-size: 1.3rem; }
-    .service ul { list-style: disc inside; font-size: 1rem; }
-
+    section { padding:80px20px; }
+    h2 { text-align:center; font-size:2.5rem; color:#0af; margin-bottom:40px; }
+    .section-content { max-width:1000px; margin:0 auto; }
+    /* Course */
+    #course { background:linear-gradient(135deg,#0a1f2f,#111); }
+    .modules { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+    .module { background:rgba(255,255,255,0.1); padding:20px; border-radius:8px; transition:transform .3s,background .3s; }
+    .module:hover { transform:translateY(-10px); background:rgba(255,255,255,0.2); }
+    .module h3 { margin-bottom:10px; font-size:1.4rem; }
+    .module p { line-height:1.4; }
+    .buy-large { display:inline-block; font-size:2rem; padding:20px60px; margin-top:40px; background:#0af; color:#000; border-radius:40px; transition:transform .3s; }
+    .buy-large:hover { transform:scale(1.1); }
+    /* Webinar */
+    #webinar { background:linear-gradient(135deg,#111,#0a1f2f); }
+    .webinar-form { background:rgba(255,255,255,0.1); padding:40px; border-radius:8px; box-shadow:0 2px10px rgba(0,0,0,0.5); }
+    .webinar-form .ml-form-embedWrapper { background:rgba(0,0,0,0.4)!important; padding:20px!important; border-radius:8px; }
+    .webinar-form input { background:#222!important; color:#fff!important; border:1px solid #444!important; }
+    .webinar-form input::placeholder { color:#aaa!important; }
+    .webinar-form .ml-form-embedPermissions p, .webinar-form label { color:#ccc!important; font-size:0.9rem; }
+    .webinar-form .g-recaptcha { transform:scale(0.8); transform-origin:0 0; margin-bottom:20px!important; }
+    .webinar-form button.btn-primary { width:100%; max-width:400px; margin:20px auto0; display:block; }
+    /* Enterprise */
+    #enterprise { background:linear-gradient(135deg,#0a1f2f,#111); }
+    .corp-services { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
+    .service { background:rgba(255,255,255,0.1); padding:20px; border-left:4px solid #0af; border-radius:8px; transition:transform .3s; }
+    .service:hover { transform:translateY(-5px); }
+    .service h3 { margin-bottom:10px; font-size:1.3rem; }
+    .service ul { list-style:disc inside; }
     /* Proposal Form */
-    .proposal-form { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-    .proposal-form h2 { margin-bottom: 20px; }
-    .proposal-form input { padding: 12px; border: none; border-radius: 4px; font-size: 1rem; width: 100%; margin-bottom: 15px; }
-    .proposal-form button { background: #0af; color: #000; padding: 15px; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: transform .3s; }
-    .proposal-form button:hover { transform: scale(1.05); }
-
+    .proposal-form { background:rgba(255,255,255,0.1); padding:40px; border-radius:8px; box-shadow:0 2px10px rgba(0,0,0,0.5); }
+    .proposal-form h2 { margin-bottom:20px; }
+    .proposal-form input { width:100%; padding:12px; margin-bottom:15px; border:none; border-radius:4px; font-size:1rem; }
+    .proposal-form button { width:100%; background:#0af; color:#000; padding:15px; font-size:1.2rem; border:none; border-radius:8px; cursor:pointer; transition:transform .3s; }
+    .proposal-form button:hover { transform:scale(1.05); }
     /* Footer */
-    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
-
-    @media (max-width: 768px) { header h1 { font-size: 2.2rem; } .price-container { top:15%; right:5%; padding:15px; } .buy-large { font-size:1.5rem; padding:15px 40px; } }
+    footer { text-align:center; padding:20px; font-size:0.9rem; color:#777; }
+    @media(max-width:768px){header h1{font-size:2.2rem;} .price-container{top:15%;right:5%;padding:15px;} .buy-large{font-size:1.5rem;padding:15px40px;} }
   </style>
 </head>
 <body>
-
-  <!-- MailerLite Universal Script -->
+  <!-- MailerLite Universal (once per page) -->
   <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
-    l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account','1635083');
   </script>
@@ -115,9 +93,9 @@
       <li><a href="#webinar">Webinar</a></li>
       <li><a href="#enterprise">Enterprise</a></li>
     </ul>
-  </nav>
+  </nav>  
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header>
     <div id="particles-js"></div>
     <div>
@@ -126,7 +104,7 @@
       <a href="#course" class="btn btn-primary">Buy Quickstart Course</a>
       <a href="#webinar" class="btn btn-secondary">Join Free Webinar</a>
     </div>
-    <!-- Price & Countdown -->
+    <!-- Price/Countdown -->
     <div class="price-container">
       <div class="original">$199</div>
       <div class="current">$27</div>
@@ -145,8 +123,9 @@
       <div class="module"><h3>Module 4: Use Cases</h3><p>Real-world examples for marketing, sales, and operations.</p></div>
       <div class="module"><h3>Module 5: Automation & SOPs</h3><p>Build AI-driven workflows and Standard Operating Procedures.</p></div>
     </div>
-    <div style="text-align:center; margin-top:40px;">
-      <a href="https://promptpro0.gumroad.com/l/quickstart?_gl=1*1xabpme*_ga*NDM1MDU5MzUwLjE3NTE0MTcyMjE.*_ga_6LJN6D94N6*czE3NTE1MTkwNDMkbzUkZzEkdDE3NTE1MTkwNzckajI2JGwwJGgw" class="buy-large" target="_blank" rel="noopener">Save $172 – Buy Now for $27</a>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://promptpro0.gumroad.com/l/quickstart?_gl=1*1xabpme*_ga*NDM1MDU5MzUwLjE3NTE0MTcyMjE.*_ga_6LJN6D94N6*czE3NTE1MTkwNDMkbzUkZzEkdDE3NTE1MTkwNzckajI2JGwwJGgw" 
+         class="buy-large" target="_blank" rel="noopener">Save $172 – Buy Now for $27</a>
     </div>
   </section>
 
@@ -163,7 +142,7 @@
                 <p>Secure your spot for our live session!</p>
               </div>
               <form class="ml-block-form"
-                    action="https://assets.mailerlite.com/jsonp/1635083/forms/158761244100134094/subscribe"
+                    action="https://assets.mailerlite.com/jsonp/1635083/forms/27894354/subscribe"
                     method="post" target="_blank">
                 <div class="ml-form-formContent">
                   <div class="ml-form-fieldRow">
@@ -181,10 +160,123 @@
                   <p>You can unsubscribe anytime. <a href="#">Privacy Policy</a>.</p>
                 </div>
                 <div class="ml-form-checkboxRow ml-validate-required">
-                  <label>
-                    <input type="checkbox" required> Opt in to receive news and updates.
-                  </label>
+                  <label><input type="checkbox" required> Opt in to receive news and updates.</label>
                 </div>
                 <div class="ml-form-recaptcha ml-validate-required">
                   <script src="https://www.google.com/recaptcha/api.js"></script>
-                  <div class="g
+                  <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Subscribe & Secure Spot</button>
+              </form>
+              <div class="ml-form-successBody row-success" style="display:none">
+                <h4>Thank you!</h4>
+                <p>Check your email for webinar details.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Section -->
+  <section id="enterprise">
+    <h2>Enterprise & Team Training</h2>
+    <div class="section-content corp-services">
+      <div class="service"><h3>AI Marketing Workshops</h3><ul><li>Automated campaign creation</li><li>Prompt-driven ad copy</li><li>Performance optimization</li></ul></div>
+      <div class="service"><h3>Sales Team Coaching</h3><ul><li>Follow-up sequence prompts</li><li>Lead qualification scripts</li><li>CRM automation</li></ul></div>
+      <div class="service"><h3>Brand Development</h3><ul><li>AI-assisted naming & slogans</li><li>Voice/tone guidelines</li><li>Content strategy frameworks</li></ul></div>
+      <div class="service"><h3>Custom Prompt Libraries</h3><ul><li>Industry-specific libraries</li><li>Team-tailored prompt sets</li><li>Ongoing prompt support</li></ul></div>
+    </div>
+
+    <!-- Enterprise Proposal Form -->
+    <div class="section-content proposal-form">
+      <h2>Request a Custom AI Training Proposal</h2>
+      <div id="mlb2-27894355" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-27894355">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody row-form">
+              <div class="ml-form-embedContent">
+                <h4>PromptPro Academy Proposal Request</h4>
+                <p>Tell us about your company and we’ll send you a personalized proposal.</p>
+              </div>
+              <form class="ml-block-form"
+                    action="https://assets.mailerlite.com/jsonp/1635083/forms/27894355/subscribe"
+                    method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-text ml-validate-required">
+                      <input type="text" name="fields[company_name]" placeholder="Your Company Name" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-number ml-validate-required">
+                      <input type="number" name="fields[employees]" placeholder="Number of Employees" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-text ml-validate-required">
+                      <input type="text" name="fields[industry]" placeholder="Industry (e.g. SaaS, Retail)" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input type="email" name="fields[email]" placeholder="Contact Email" required>
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-text ml-validate-required">
+                      <input type="text" name="fields[phone]" placeholder="Phone Number" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-form-embedPermissions">  
+                  <p>You can unsubscribe anytime. <a href="#">Privacy Policy</a>.</p>
+                </div>
+                <div class="ml-form-checkboxRow ml-validate-required">
+                  <label><input type="checkbox" required> Yes, send me AI tips & exclusive offers.</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Request My Proposal</button>
+              </form>
+              <div class="ml-form-successBody row-success" style="display:none">
+                <h4>Thank you!</h4>
+                <p>We’ve received your request and will be in touch shortly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>&copy; 2025 PromptPro Academy. All rights reserved.</footer>
+
+  <!-- Initialization Scripts -->
+  <script>
+    particlesJS('particles-js', {
+      particles:{ number:{value:60}, color:{value:'#0af'}, shape:{type:'circle'},
+                  line_linked:{enable:true, color:'#0af'}, move:{speed:2}, size:{value:3} },
+      interactivity:{ events:{ onhover:{ enable:true, mode:'grab' } } }
+    });
+    const countdownEl=document.getElementById('countdown');
+    const end=new Date(); end.setDate(end.getDate()+1);
+    setInterval(()=>{
+      const now=Date.now(), d=end-now;
+      if(d<0){ countdownEl.innerText='Expired'; return; }
+      const days=Math.floor(d/864e5),
+            hrs=Math.floor((d%864e5)/36e5),
+            mins=Math.floor((d%36e5)/6e4),
+            secs=Math.floor((d%6e4)/1e3);
+      countdownEl.innerText=`${days}d ${hrs}h ${mins}m ${secs}s`;
+    },1000);
+  </script>
+
+  <!-- MailerLite Webforms Loader -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v=176e10baa5e7ed80d35ae235be3d5024"></script>
+  <script>
+    fetch("https://assets.mailerlite.com/jsonp/1635083/forms/27894354/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1635083/forms/27894355/takel");
+  </script>
+</body>
+</html>
