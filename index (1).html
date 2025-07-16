@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PromptPro Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 { font-size: 3rem; margin-top: 1rem; }
+    h2 { font-size: 2rem; margin-top: 2rem; }
+    p { font-size: 1.2rem; max-width: 700px; margin: 1rem auto; }
+    .btn {
+      background: #ff416c;
+      padding: 1rem 2rem;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .timer { font-size: 2rem; margin: 2rem 0; }
+    .testimonials, .benefits {
+      margin-top: 3rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+    }
+    .testimonial, .benefit { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 PromptPro Academy</h1>
+  <p>Master the language of AI. Expert strategies. 50+ templates. Real-world workflows.</p>
+  <a class="btn" href="https://www.promptproacademy.com">Preorder Now</a>
+
+  <div class="timer" id="countdown">⏳ Preorder closes in: Loading...</div>
+
+  <div class="testimonials">
+    <h2>💬 What Early Readers Say</h2>
+    <div class="testimonial">"This book changed how I use AI forever. A must-have." — Alex G.</div>
+    <div class="testimonial">"Finally a prompt guide that actually teaches deep strategy." — Tasha R.</div>
+    <div class="testimonial">"50+ reusable templates for every use case. Absolute game-changer." — Michael L.</div>
+  </div>
+
+  <div class="benefits">
+    <h2>✨ Why This Book is Different</h2>
+    <div class="benefit">✅ Speak to AI like a pro with clear, result-driven prompts</div>
+    <div class="benefit">✅ Stay secure: prompt injection defense and best practices</div>
+    <div class="benefit">✅ Automate workflows with chained prompts and scripts</div>
+  </div>
+
+  <h2>🎥 See PromptPro in Action</h2>
+  <div id="avatar-container">
+    <script src="https://cdn.jsdelivr.net/npm/talkinghead@latest/dist/TalkingHead.js"></script>
+    <script>
+      const avatar = new TalkingHead({
+        src: 'https://models.readyplayer.me/64c2ea20e5cba98f00b716bb.glb',
+        el: document.body,
+        autoplay: true,
+        text: "Welcome to PromptPro Academy. This book will change how you prompt forever. Get ready to unlock your potential."
+      });
+    </script>
+  </div>
+
+  <script>
+    const deadline = new Date("2025-08-15T23:59:59").getTime();
+    const countdownEl = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = deadline - now;
+      if (distance < 0) {
+        clearInterval(timer);
+        countdownEl.innerHTML = "🔥 The preorder window has closed!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `⏳ Preorder closes in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
