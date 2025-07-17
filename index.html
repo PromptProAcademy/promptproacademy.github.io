@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PromptPro Academy</title>
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
 
-  <!-- MailerLite Universal (load before any call to ml()) -->
+  <!-- MailerLite Universal (must load before any ml() calls) -->
   <script>
-  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){
-    (w[f].q=w[f].q||[]).push(arguments)},l=d.createElement(e),
-    l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],
-    n.parentNode.insertBefore(l,n)})
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){
+      (w[f].q=w[f].q||[]).push(arguments)},l=d.createElement(e),
+      l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],
+      n.parentNode.insertBefore(l,n)})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '1635083');
+    ml('account', '1635083');
   </script>
   <!-- End MailerLite Universal -->
+
+  <!-- Auto‐show your MailerLite popup on page load -->
+  <script>
+    window.addEventListener('load', function() {
+      ml('show', 'mk89x5', true);
+    });
+  </script>
 
   <style>
     body {
@@ -31,110 +38,100 @@
     h1 { font-size: 3rem; margin-top: 1rem; }
     h2 { font-size: 2rem; margin-top: 2rem; }
     p  { font-size: 1.2rem; max-width: 700px; margin: 1rem auto; }
-
     .btn {
       display: inline-block;
       background: #ff416c;
       padding: 1rem 2rem;
       border: none;
-      color: white;
+      color: #fff;
       border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
       margin: .5rem;
     }
-
-    .ml-onclick-form {
-      display: inline-block;
-      background: #00aaff;
-      padding: .75rem 1.5rem;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 1rem 0;
-      cursor: pointer;
+    .timer {
+      font-size: 2rem;
+      margin: 2rem 0;
     }
-
-    .timer { font-size: 2rem; margin: 2rem 0; }
     .testimonials, .benefits {
       margin-top: 3rem;
       background: rgba(255,255,255,0.1);
       border-radius: 10px;
       padding: 2rem;
     }
-    .testimonial, .benefit { margin-bottom: 1rem; }
+    .testimonial, .benefit {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    #avatar3d {
+      width: 200px; height: 200px;
+      margin: 1rem auto;
+      background: #222;
+      border-radius: 50%;
+      overflow: hidden;
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- MailerLite on-click trigger button -->
-  <a class="ml-onclick-form" href="javascript:void(0)"
-     onclick="ml('show', 'mk89x5', true)">
-    Join our VIP list
-  </a>
-
+  <!-- Hero Section -->
   <h1>🚀 PromptPro Academy</h1>
   <p>Master the language of AI. Expert strategies. 50+ templates. Real-world workflows.</p>
-
   <a class="btn" href="https://www.promptproacademy.com">Preorder Now</a>
 
-  <div class="timer" id="countdown">⏳ Preorder closes in: Loading...</div>
+  <!-- Countdown Timer -->
+  <div class="timer" id="countdown">⏳ Preorder closes in: Loading…</div>
 
+  <!-- Testimonials -->
   <div class="testimonials">
     <h2>💬 What Early Readers Say</h2>
-    <div class="testimonial">
-      "This book changed how I use AI forever. A must-have." — Alex G.
-    </div>
-    <div class="testimonial">
-      "Finally a prompt guide that actually teaches deep strategy." — Tasha R.
-    </div>
-    <div class="testimonial">
-      "50+ reusable templates for every use case. Absolute game-changer." — Michael L.
-    </div>
+    <div class="testimonial">“This book changed how I use AI forever. A must-have.” — Alex G.</div>
+    <div class="testimonial">“Finally a prompt guide that actually teaches deep strategy.” — Tasha R.</div>
+    <div class="testimonial">“50+ reusable templates for every use case. Absolute game-changer.” — Michael L.</div>
   </div>
 
+  <!-- Benefits -->
   <div class="benefits">
-    <h2>✨ Why This Book is Different</h2>
+    <h2>✨ Why This Book Is Different</h2>
     <div class="benefit">✅ Speak to AI like a pro with clear, result-driven prompts</div>
-    <div class="benefit">✅ Stay secure: prompt-injection defense & best practices</div>
+    <div class="benefit">✅ Stay secure: prompt injection defense & best practices</div>
     <div class="benefit">✅ Automate workflows with chained prompts & scripts</div>
   </div>
 
-  <h2>🎥 See PromptPro in Action</h2>
-  <div id="avatar-container">
-    <script src="https://cdn.jsdelivr.net/npm/talkinghead@latest/dist/TalkingHead.js"></script>
-    <script>
-      new TalkingHead({
-        src: 'https://models.readyplayer.me/64c2ea20e5cba98f00b716bb.glb',
-        el: document.getElementById('avatar-container'),
-        autoplay: true,
-        text: "Welcome to PromptPro Academy. This book will change how you prompt forever. Get ready to unlock your potential."
-      });
-    </script>
-  </div>
-
+  <!-- 3D Talking Avatar -->
+  <h2>🗣 See It Speak</h2>
+  <div id="avatar3d"></div>
+  <script src="https://cdn.jsdelivr.net/npm/talkinghead@latest/dist/TalkingHead.js"></script>
   <script>
-    // Countdown timer script
-    const deadline = new Date("2025-08-15T23:59:59").getTime();
-    const countdownEl = document.getElementById('countdown');
-    const timer = setInterval(() => {
-      const now = Date.now();
-      const diff = deadline - now;
-      if (diff < 0) {
-        clearInterval(timer);
-        countdownEl.innerHTML = "🔥 The preorder window has closed!";
-        return;
-      }
-      const days    = Math.floor(diff / (1000*60*60*24));
-      const hours   = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-      const mins    = Math.floor((diff % (1000*60*60)) / (1000*60));
-      const secs    = Math.floor((diff % (1000*60)) / 1000);
-      countdownEl.innerHTML =
-        `⏳ Preorder closes in: ${days}d ${hours}h ${mins}m ${secs}s`;
-    }, 1000);
+    new TalkingHead({
+      src: 'https://models.readyplayer.me/64ae2cc205b7e4db2aeed5bb.glb',
+      el: document.getElementById('avatar3d'),
+      autoplay: true,
+      text: "Welcome to PromptPro Academy. This book will change how you prompt forever. Get ready to unlock your potential."
+    });
+  </script>
+
+  <!-- Countdown Script -->
+  <script>
+    (function(){
+      const end = new Date("2025-08-15T23:59:59").getTime();
+      const el  = document.getElementById('countdown');
+      const iv  = setInterval(()=>{
+        const now = Date.now(),
+              d = end - now;
+        if(d<=0){
+          clearInterval(iv);
+          el.textContent = "🔥 Preorder window has closed!";
+          return;
+        }
+        const days = Math.floor(d/(1000*60*60*24)),
+              hrs  = Math.floor((d%(1000*60*60*24))/(1000*60*60)),
+              min  = Math.floor((d%(1000*60*60))/(1000*60)),
+              sec  = Math.floor((d%(1000*60))/1000);
+        el.textContent = `⏳ Preorder closes in: ${days}d ${hrs}h ${min}m ${sec}s`;
+      }, 1000);
+    })();
   </script>
 
 </body>
